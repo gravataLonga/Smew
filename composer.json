@@ -1,0 +1,18 @@
+{
+    "name": "gravatalonga/patterns",
+    "description": "Patterns Gravata Longa",
+    "authors": [
+        {
+            "name": "Jonathan Fontes",
+            "email": "jonathan.alexey16@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Gravatalonga\\Smew\\": "src/Smew/"}
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "pimple/pimple": "^3.0",
+        "phpunit/phpunit": "^4.8"
+    }
+}
