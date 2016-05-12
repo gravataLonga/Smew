@@ -3,7 +3,7 @@ namespace Gravatalonga\Smew\Page\Contract;
 
 use Gravatalonga\Smew\Meta\Contract\MetaRepository;
 
-interface Factory
+interface FactoryInterface
 {
 
     public function __construct(MetaRepository $meta);

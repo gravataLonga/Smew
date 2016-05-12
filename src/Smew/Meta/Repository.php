@@ -1,10 +1,10 @@
 <?php
 namespace Gravatalonga\Smew\Meta;
 
-use Gravatalonga\Smew\Meta\Contract\MetaRepository;
-use Gravatalonga\Smew\Meta\Contract\StoreMeta;
+use Gravatalonga\Smew\Meta\Contract\MetaRepositoryInterface;
+use Gravatalonga\Smew\Meta\Contract\StoreMetaInterface;
 
-class Repository implements MetaRepository
+class Repository implements MetaRepositoryInterface
 {
 
     // Drive used
@@ -39,7 +39,7 @@ class Repository implements MetaRepository
         'proccess'          => 'plain' // html, markdown and plain.
     ];
 
-    public function __construct(StoreMeta $page)
+    public function __construct(StoreMetaInterface $page)
     {
         $this->drive = $page;
     }
@@ -78,7 +78,7 @@ class Repository implements MetaRepository
         $this->path = $path;
 
         // Get file content
-        $content = @file_get_contents($path);
+        $content = file_get_contents($path);
 
         // May be we can't read file.
         if (!$content) {

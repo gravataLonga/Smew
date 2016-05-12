@@ -1,7 +1,7 @@
 <?php
 namespace Gravatalonga\Smew\Meta\Contract;
 
-interface StoreMeta
+interface StoreMetaInterface
 {
     public function put($meta, $value, $persist = true);
 

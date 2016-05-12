@@ -1,9 +1,10 @@
 <?php
 namespace Gravatalonga\Smew\Page;
 
-use Gravatalonga\Smew\Meta\Contract\PageRepository;
+use Gravatalonga\Smew\Page\Contract\FactoryInterface;
+use Gravatalonga\Smew\Meta\Contract\MetaRepository;
 
-class PageManager extends Factory
+class PageManager extends FactoryInterface
 {
 
     protected $path;
@@ -32,7 +33,7 @@ class PageManager extends Factory
     public function read()
     {
         if (!isset($this->path) && empty($this->path)) {
-            throw new Exception('Path not set use path() to set new path.');
+            throw new \Exception('Path not set use path() to set new path.');
         }
 
         if (!empty($this->content) || count($content)<=0) {

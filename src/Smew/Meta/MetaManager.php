@@ -1,11 +1,10 @@
 <?php
 namespace Gravatalonga\Smew\Meta;
 
-use Gravatalonga\Smew\Meta\Contract\Factory;
-use Gravatalonga\Smew\Meta\Contract\StoreMeta;
-use Gravatalonga\Smew\Container\Container;
+use Gravatalonga\Smew\Meta\Contract\FactoryInterface;
+use Gravatalonga\Smew\Meta\Contract\StoreMetaInterface;
 
-class MetaManager implements Factory
+class MetaManager implements FactoryInterface
 {
     public function driver($name)
     {
@@ -18,7 +17,7 @@ class MetaManager implements Factory
         if (method_exists($this, $driverMethod)) {
             return $this->{$driverMethod}([]);
         } else {
-            throw new InvalidArgumentException("Driver [{$config['driver']}] is not supported.");
+            throw new \InvalidArgumentException("Driver [{$config['driver']}] is not supported.");
         }
     }
 
@@ -37,7 +36,7 @@ class MetaManager implements Factory
         return $this->repository(new SerializeDrive);
     }
 
-    public function repository(StoreMeta $drive)
+    public function repository(StoreMetaInterface $drive)
     {
         $repository = new Repository($drive);
         return $repository;

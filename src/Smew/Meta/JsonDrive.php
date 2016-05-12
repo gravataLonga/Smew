@@ -1,9 +1,9 @@
 <?php
 namespace Gravatalonga\Smew\Meta;
 
-use Gravatalonga\Smew\Meta\Contract\StoreMeta;
+use Gravatalonga\Smew\Meta\Contract\StoreMetaInterface;
 
-class JsonDrive implements StoreMeta
+class JsonDrive implements StoreMetaInterface
 {
     public $meta = [];
 

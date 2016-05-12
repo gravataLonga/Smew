@@ -1,7 +1,7 @@
 <?php
 namespace Gravatalonga\Smew\Meta\Contract;
 
-interface MetaRepository
+interface MetaRepositoryInterface
 {
     public function put($meta, $value);
 

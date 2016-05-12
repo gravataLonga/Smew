@@ -1,9 +1,9 @@
 <?php
 namespace Gravatalonga\Smew\Meta;
 
-use Gravatalonga\Smew\Meta\Contract\StoreMeta;
+use Gravatalonga\Smew\Meta\Contract\StoreMetaInterface;
 
-class SerializeDrive implements StoreMeta
+class SerializeDrive implements StoreMetaInterface
 {
     public $meta = [];
 

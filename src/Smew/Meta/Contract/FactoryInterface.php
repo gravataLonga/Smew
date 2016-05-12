@@ -1,7 +1,7 @@
 <?php
 namespace Gravatalonga\Smew\Meta\Contract;
 
-interface Factory
+interface FactoryInterface
 {
     public function driver($name);
 }
