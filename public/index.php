@@ -24,6 +24,3 @@ require __DIR__.'/../vendor/autoload.php';
 $smew = new Gravatalonga\Smew\App(
 	realpath(__DIR__.'/../')
 );
-
-var_dump($smew['meta']);
-exit;

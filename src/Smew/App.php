@@ -5,7 +5,7 @@ use Pimple\Container;
 
 class App extends Container
 {
-	/**
+    /**
      * The current globally available container (if any).
      *
      * @var static
@@ -29,7 +29,7 @@ class App extends Container
 
     /**
      * Contruct to recive list of provider
-     * 
+     *
      * @return Gravatalonga\Smew;
      */
     public function __construct($basePath)
@@ -45,7 +45,7 @@ class App extends Container
 
     public function registerBaseBindings()
     {
-    	static::setInstance($this);
+        static::setInstance($this);
 
         $this['app'] = $this;
     }
@@ -61,10 +61,10 @@ class App extends Container
 
     /**
      * Setting base path of our applications
-     * 
+     *
      * @return void
      */
-    public function setBasePath ($basePath)
+    public function setBasePath($basePath)
     {
         $this->basePath = rtrim($basePath, '\/');
         $this->bindPathsInContainer();
@@ -73,7 +73,7 @@ class App extends Container
 
     /**
      * Bind Paths into container
-     * @return 
+     * @return
      */
     public function bindPathsInContainer()
     {
@@ -85,27 +85,27 @@ class App extends Container
 
     public function path()
     {
-    	return $this->basePath.DIRECTORY_SEPARATOR.'app';
+        return $this->basePath.DIRECTORY_SEPARATOR.'app';
     }
 
     public function basePath()
     {
-    	return $this->basePath;
+        return $this->basePath;
     }
 
     public function configPath()
     {
-    	return $this->basePath.DIRECTORY_SEPARATOR.'config';
+        return $this->basePath.DIRECTORY_SEPARATOR.'config';
     }
 
     public function publicPath()
     {
-    	return $this->basePath.DIRECTORY_SEPARATOR.'public';
+        return $this->basePath.DIRECTORY_SEPARATOR.'public';
     }
 
     public function storagePath()
     {
-    	return $this->basePath.DIRECTORY_SEPARATOR.'storage';
+        return $this->basePath.DIRECTORY_SEPARATOR.'storage';
     }
 
     /**
@@ -132,21 +132,20 @@ class App extends Container
 
     /**
      * Register Service Provider
-     * 
+     *
      * @return
      */
-    public function registerServiceProvider ()
+    public function registerServiceProvider()
     {
         $configPath = $this['path.config'];
-        if(!$this->boot) {
+        if (!$this->boot) {
             $arr = include $configPath.'/app.php';
-            foreach($arr['provider'] as $provider) {
-                if(is_string($provider)) {
+            foreach ($arr['provider'] as $provider) {
+                if (is_string($provider)) {
                     $provider = $this->resolveProviderClass($provider);
                 }
                 $this->register($provider);
-                if(method_exists($provider, 'boot'))
-                {
+                if (method_exists($provider, 'boot')) {
                     $provider->boot();
                 }
             }
