@@ -21,6 +21,12 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-$smew = new Gravatalonga\Smew\App(
-	realpath(__DIR__.'/../')
+$app = new Gravatalonga\Smew\App(
+    realpath(__DIR__.'/../')
 );
+
+$files = $app['finder'];
+
+foreach ($files as $k => $v) {
+    echo $v->getContents();
+}

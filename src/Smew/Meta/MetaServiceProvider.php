@@ -15,7 +15,7 @@ class MetaServiceProvider implements ServiceProviderInterface
     public function register(Container $container)
     {
         $container['meta'] = function ($c) {
-            $content = new MetaManager();
+            $content = new MetaManager($c);
             $page = $content->driver('static');
             return $page;
         };

@@ -34,6 +34,8 @@ class App extends Container
      */
     public function __construct($basePath)
     {
+        parent::__construct();
+        
         $this->registerBaseBindings();
 
         if ($basePath) {
