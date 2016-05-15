@@ -21,12 +21,15 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
+use Gravatalonga\Smew\File\Filesystem;
+
 $app = new Gravatalonga\Smew\App(
     realpath(__DIR__.'/../')
 );
 
 $files = $app['finder'];
-
+$file = new Filesystem();
 foreach ($files as $k => $v) {
-    echo $v->getContents();
+    var_dump($v);
+    exit;
 }

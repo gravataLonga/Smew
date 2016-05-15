@@ -14,5 +14,9 @@ interface FactoryInterface
 
     public function write();
 
-    public function meta(MetaRepository $meta);
+    // public function meta(MetaRepository $meta);
+
+    // public function body(BodyRepository $body)
+    
+    // public function extend(RepositoryInterface $extend)
 }

@@ -20,6 +20,11 @@ class MetaManager implements FactoryInterface
         return $this->resolve($name);
     }
 
+    public function extend($drive, \Closure $callback)
+    {
+        $this->customDriver[$drive] = $callback;
+    }
+
     private function resolve($name)
     {
         $config = $this->getConfig($name);
@@ -51,11 +56,6 @@ class MetaManager implements FactoryInterface
         return $this->repository(new SerializeDrive);
     }
 
-    protected function extend($drive, Closure $callback)
-    {
-        $this->customDriver[$drive] = $callback;
-    }
-
     protected function callCustomCreator(array $config)
     {
         $driver = $this->customDriver[$config['driver']]($this->app, $config);
@@ -69,7 +69,6 @@ class MetaManager implements FactoryInterface
     protected function getConfig($name)
     {
         return ['driver' => $name];
-        // return $this->app['config']["filesystems.disks.{$name}"];
     }
 
     public function repository(StoreMetaInterface $drive)

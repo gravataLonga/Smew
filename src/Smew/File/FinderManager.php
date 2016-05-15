@@ -11,10 +11,13 @@ class FinderManager extends Finder
 
     protected $strPatternFile = '*.smew';
 
-    public function __construct($strBaseLocation)
+    protected $app;
+
+    public function __construct($app)
     {
         parent::__construct();
-        return $this->setBaseLocation($strBaseLocation);
+        $this->app = $app;
+        return $this->setBaseLocation($app['path.storage']);
     }
 
     public function setBaseLocation($set)

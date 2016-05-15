@@ -3,6 +3,8 @@ namespace Gravatalonga\Smew\Page;
 
 use Gravatalonga\Smew\Page\Contract\FactoryInterface;
 use Gravatalonga\Smew\Meta\Contract\MetaRepository;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 class PageManager extends FactoryInterface
 {

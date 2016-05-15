@@ -3,6 +3,8 @@ namespace Gravatalonga\Smew\Meta\Contract;
 
 interface MetaRepositoryInterface
 {
+    public function __construct(StoreMetaInterface $page);
+
     public function put($meta, $value);
 
     public function fetch($meta, $default = null);

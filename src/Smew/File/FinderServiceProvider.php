@@ -10,13 +10,14 @@ class FinderServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $container)
     {
-        $container['filesystem'] = function ($c) {
-            return new Filesystem();
-        };
+        // Finder
+        $container['finder'] = $container->factory(function ($c) {
+            return new FinderManager($c);
+        });
 
-        $container['finder'] = function ($c) {
-            $finder = new FinderManager($c['path.storage']);
-            return $finder;
+        // Filesystem
+        $container['filesystem'] = function ($c) {
+            return new Filesystem;
         };
     }
 }
